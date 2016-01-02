@@ -4,11 +4,12 @@ defmodule RethinkExample.Post do
   schema "posts" do
     field :title, :string
     field :content, :string
+    field :user, :string
 
     timestamps
   end
 
-  @required_fields ~w(title content)
+  @required_fields ~w(title content user)
   @optional_fields ~w()
 
   @doc """
