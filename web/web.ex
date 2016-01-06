@@ -18,8 +18,9 @@ defmodule RethinkExample.Web do
 
   def model do
     quote do
-      use Ecto.Model
+      use Ecto.Schema
 
+      import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
     end
@@ -30,6 +31,7 @@ defmodule RethinkExample.Web do
       use Phoenix.Controller
 
       alias RethinkExample.Repo
+      import Ecto
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
 
@@ -48,6 +50,8 @@ defmodule RethinkExample.Web do
       use Phoenix.HTML
 
       import RethinkExample.Router.Helpers
+      import RethinkExample.ErrorHelpers
+      import RethinkExample.Gettext
     end
   end
 
@@ -62,6 +66,7 @@ defmodule RethinkExample.Web do
       use Phoenix.Channel
 
       alias RethinkExample.Repo
+      import Ecto
       import Ecto.Model
       import Ecto.Query, only: [from: 1, from: 2]
     end
